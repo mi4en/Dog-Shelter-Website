@@ -1,0 +1,45 @@
+{
+  "name": "dog-shelter-website",
+  "version": "1.0.0",
+  "description": "charity website for a dog shelter",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mi4en/Dog-Shelter-Website.git"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "mongodb",
+    "javascript",
+    "bootstrap",
+    "jquery"
+  ],
+  "author": "Mario Nikolov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mi4en/Dog-Shelter-Website/issues"
+  },
+  "homepage": "https://github.com/mi4en/Dog-Shelter-Website#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.13.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "moment": "^2.23.0",
+    "mongoose": "^5.4.0",
+    "multer": "^1.4.1",
+    "nodemailer": "^4.7.0",
+    "nodemon": "^1.18.9",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
+  }
+}
