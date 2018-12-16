@@ -19,7 +19,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
 
 // COMMENT CREATE ROUTE
 router.post("/", middleware.isLoggedIn, function(req, res) {
-  // lookup recipe using ID
+  // lookup dog using ID
   Dog.findById(req.params.id, function(err, dog) {
     if (err) {
       req.flash("error", "Someting went wrong");

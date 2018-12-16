@@ -7,7 +7,7 @@ var moment = require('moment')
 var passport = require('passport')
 var LocalStrategy = require('passport-local')
 var methodOverride = require('method-override')
-var Dog = require('./models/recipe')
+var Dog = require('./models/dog')
 var Comment = require('./models/comment')
 var User = require('./models/user')
 var seedDB = require('./seeds')
@@ -15,7 +15,7 @@ var seedDB = require('./seeds')
 // requiring routes
 var commentRoutes = require('./routes/comments')
 
-var recipeRoutes = require('./routes/dogs')
+var dogRoutes = require('./routes/dogs')
 
 var indexRoutes = require('./routes/index')
 
@@ -57,7 +57,7 @@ app.use(function (req, res, next) {
 })
 
 app.use('/', indexRoutes)
-app.use('/dogs', recipeRoutes)
+app.use('/dogs', dogRoutes)
 app.use('/dogs/:id/comments', commentRoutes)
 
 app.use(function (req, res, next) {

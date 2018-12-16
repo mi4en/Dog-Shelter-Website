@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
 // Define schema
 var dogSchema = new mongoose.Schema({
   name: String,
-  breed: String,
+  price: String,
   image: String,
   imageId: String,
   description: String,
