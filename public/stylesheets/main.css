@@ -1,0 +1,166 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  body {
+    /*height: 100%;*/
+      position: relative;
+    margin: 0;
+    padding-bottom: 11rem;
+    min-height: 100%;
+  }
+  /*a {*/
+  /*  color: cyan*/
+  /*}*/
+  .bg {
+    background-color: #ffe1c9;
+    /* The image used */
+    /*background-image: url("/assets/photoBody.jpg");*/
+    /* Full height */
+    /* height: 100%; */
+    /* Center and scale the image nicely */
+    /*background-size: 100% 100%;*/
+    /* display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center; */
+  }
+  .btn-success {
+    background-color: #37513b;
+    border-color: #37513b;
+  }
+  .btn-outline-success:hover {
+    background-color: #37513b;
+    border-color: #37513b;
+  }
+  .btn-outline-success {
+    color:  #37513b;
+    border-color: #37513b;
+  }
+  .bg-card-index {
+    background-color:#f6ffed;
+  }
+  .bg-card-show {
+    background-color:#f6ffed;
+  }
+  .jumbotron-style {
+    background-image: url('/assets/cook_like_a_witch_by_toradh-darmazeCropped.png');
+    background-size: 100% 100%;
+  }
+  /*body {*/
+  /*  display: -ms-flexbox;*/
+  /*  display: flex;*/
+  /*  -ms-flex-align: center;*/
+  /*  align-items: center;*/
+  /*  padding-top: 40px;*/
+  /*  padding-bottom: 40px;*/
+  /*  background-color: #f5f5f5;*/
+    /*margin-bottom: 60px;*/
+  /*}*/
+  
+  .form-signin {
+    width: 100%;
+    max-width: 430px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .form-signup {
+    width: 100%;
+    max-width: 430px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-signup .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signup .form-control:focus {
+    z-index: 2;
+  }
+  .form-signup input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signup input[type="password"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signup input[type="avatar"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .delete-form {
+      display: inline
+  }
+  .no-comments {
+    color: grey;
+  }
+  .own-comment {
+    color: orange;
+  }
+  .ta {
+    border-color: lightgrey;
+    background-color: #ffffff;
+  }
+  .footer-custom {
+    /*position: static;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    width: 100%;
+    background-color: #2a3035;
+    /*height: 9em;*/
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+  .footer-link-style {
+    color: red;
+  }
+  .copyright-style {
+    color: lightgrey;
+  }
+  .page-link-style {
+    color: black;
+  }
+  .footer-bot {
+    flex: 1 1 auto;
+  }
+  .change-color {
+    color: white;
+  }
