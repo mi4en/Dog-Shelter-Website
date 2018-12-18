@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var Dog = require('../models/dog');
 var middleware = require('../middleware');
 var multer = require('multer');
+var Dog = require('../models/dog');
 var storage = multer.diskStorage({
 	filename: function(req, file, callback) {
 		callback(null, Date.now() + file.originalname);
@@ -134,7 +134,7 @@ router.get('/:id', function(req, res) {
 		});
 });
 
-// EDIT RECIPE ROUTE
+// EDIT DOG ROUTE
 router.get('/:id/edit', middleware.checkDogOwnership, function(req, res) {
 	Dog.findById(req.params.id, function(err, foundDog) {
 		if (err) {
@@ -146,7 +146,7 @@ router.get('/:id/edit', middleware.checkDogOwnership, function(req, res) {
 	});
 });
 
-// UPDATE RECIPE ROUTE
+// UPDATE DOG ROUTE
 router.put(
 	'/:id',
 	middleware.checkDogOwnership,
@@ -179,7 +179,7 @@ router.put(
 	}
 );
 
-// DESTROY RECIPE ROUTE
+// DESTROY DOG ROUTE
 router.delete('/:id', middleware.checkDogOwnership, function(req, res) {
 	Dog.findById(req.params.id, async function(err, dog) {
 		if (err) {

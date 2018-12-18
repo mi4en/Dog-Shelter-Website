@@ -4,7 +4,7 @@ var Comment = require('../models/comment');
 // all the middleare goes here
 var middlewareObj = {};
 
-middlewareObj.checkRecipeOwnership = function(req, res, next) {
+middlewareObj.checkDogOwnership = function(req, res, next) {
 	if (req.isAuthenticated()) {
 		Dog.findById(req.params.id, function(err, foundDog) {
 			if (err || !foundDog) {
