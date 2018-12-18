@@ -61,9 +61,7 @@ app.use('/dogs', dogRoutes);
 app.use('/dogs/:id/comments', commentRoutes);
 
 app.use(function(req, res, next) {
-	res
-		.status(404)
-		.render('404_error_template', { title: 'Sorry, page not found' });
+	res.status(404).render('404_error_template', { title: 'NotFound' });
 });
 
 app.listen(process.env.PORT || 3000, process.env.IP, function() {

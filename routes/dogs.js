@@ -84,7 +84,7 @@ router.get('/', function(req, res) {
 });
 
 // CREATE - add new dog to DB
-router.post('/', middleware.isLoggedIn, upload.single('image'), function(
+router.post('/', middleware.isLoggedIn, upload.array('image', 3), function(
 	req,
 	res
 ) {
@@ -170,7 +170,7 @@ router.put(
 				}
 				dog.name = req.body.dog.name;
 				dog.description = req.body.dog.description;
-				dog.price = req.body.dog.price;
+				dog.breed = req.body.dog.breed;
 				dog.save();
 				req.flash('success', 'Successfully Updated!');
 				res.redirect('/dogs/' + dog._id);
