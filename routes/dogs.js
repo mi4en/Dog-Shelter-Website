@@ -88,7 +88,7 @@ router.post('/', middleware.isLoggedIn, upload.array('image', 3), function(
 	req,
 	res
 ) {
-	cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
+	cloudinary.v2.uploader.upload(req.files.path, function(err, result) {
 		if (err) {
 			req.flash('error', err.message);
 			return res.redirect('back');
