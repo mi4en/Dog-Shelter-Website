@@ -113,7 +113,8 @@ router.post('/', middleware.isLoggedIn, upload.array('image', 3), function(
 });
 
 // NEW - show form to create new dog
-router.get('/new', middleware.isLoggedIn, function(req, res) {
+//router.get('/new', middleware.isLoggedIn, function (req, res) {
+router.get('/new', middleware.checkUserIsAdmin, function(req, res) {
 	res.render('dogs/new');
 });
 

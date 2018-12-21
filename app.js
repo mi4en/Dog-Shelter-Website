@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+require('dotenv').config();
 var flash = require('connect-flash');
 var moment = require('moment');
 var passport = require('passport');

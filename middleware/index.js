@@ -4,6 +4,20 @@ var Comment = require('../models/comment');
 // all the middleare goes here
 var middlewareObj = {};
 
+middlewareObj.checkUserIsAdmin = function(req, res, next) {
+	if (req.isAuthenticated()) {
+		if (req.user.isAdmin) {
+			next();
+		} else {
+			req.flash('error', 'Access Denied');
+			res.redirect('/dogs');
+		}
+	} else {
+		req.flash('error', 'Access Denied');
+		res.redirect('/dogs');
+	}
+};
+
 middlewareObj.checkDogOwnership = function(req, res, next) {
 	if (req.isAuthenticated()) {
 		Dog.findById(req.params.id, function(err, foundDog) {
@@ -12,7 +26,8 @@ middlewareObj.checkDogOwnership = function(req, res, next) {
 				res.redirect('back');
 			} else {
 				// does user own the dog?
-				if (foundDog.author.id.equals(req.user._id) || req.user.isAdmin) {
+				//if (foundDog.author.id.equals(req.user._id) || req.user.isAdmin) {
+				if (req.user.isAdmin) {
 					next();
 				} else {
 					req.flash('error', 'Access denied!');
