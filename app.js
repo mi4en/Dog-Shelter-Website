@@ -65,6 +65,6 @@ app.use(function(req, res, next) {
 	res.status(404).render('404_error_template', { title: 'NotFound' });
 });
 
-app.listen(process.env.PORT || 3000, process.env.IP, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
 	console.log('server started...');
 });
