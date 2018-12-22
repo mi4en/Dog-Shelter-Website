@@ -84,11 +84,11 @@ router.get('/', function(req, res) {
 });
 
 // CREATE - add new dog to DB
-router.post('/', middleware.isLoggedIn, upload.array('image', 3), function(
+router.post('/', middleware.isLoggedIn, upload.single('image'), function(
 	req,
 	res
 ) {
-	cloudinary.v2.uploader.upload(req.files.path, function(err, result) {
+	cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
 		if (err) {
 			req.flash('error', err.message);
 			return res.redirect('back');
@@ -111,6 +111,34 @@ router.post('/', middleware.isLoggedIn, upload.array('image', 3), function(
 		});
 	});
 });
+
+// *********************Code for adding multiple images************************** //
+// router.post(
+// 	'/',
+// 	middleware.isLoggedIn,
+// 	upload.array('image', 3),
+// 	async function (req, res) {
+// 		// add author to campground
+// 		req.body.dog.author = {
+// 			id: req.user._id,
+// 			username: req.user.username
+// 		};
+
+// 		req.body.dog.image = [];
+// 		for (const file of req.files) {
+// 			let result = await cloudinary.v2.uploader.upload(file.path);
+// 			req.body.dog.image.push(result.secure_url);
+// 		}
+
+// 		Dog.create(req.body.dog, function (err, dog) {
+// 			if (err) {
+// 				return res.redirect('back');
+// 			}
+// 			res.redirect('/dogs/' + dog.id);
+// 		});
+// 	}
+// );
+// ************************************************************************* //
 
 // NEW - show form to create new dog
 //router.get('/new', middleware.isLoggedIn, function (req, res) {
