@@ -15,9 +15,6 @@ body {
 	padding-bottom: 11rem;
 	min-height: 100%;
 }
-/*a {*/
-/*  color: cyan*/
-/*}*/
 .bg {
 	background-color: #9b9280;
 	/* The image used */
@@ -52,16 +49,6 @@ body {
 	background-image: url('/assets/blgDogShelter.jpg');
 	background-size: 100% 100%;
 }
-/*body {*/
-/*  display: -ms-flexbox;*/
-/*  display: flex;*/
-/*  -ms-flex-align: center;*/
-/*  align-items: center;*/
-/*  padding-top: 40px;*/
-/*  padding-bottom: 40px;*/
-/*  background-color: #f5f5f5;*/
-/*margin-bottom: 60px;*/
-/*}*/
 .delete-form {
 	display: inline;
 }
@@ -75,13 +62,9 @@ body {
 	border-color: lightgrey;
 	background-color: #ffffff;
 }
-.footer-custom {
-	/*position: static;*/
-	/*left: 0;*/
-	/*bottom: 0;*/
+.footer-custom {	
 	width: 100%;
 	background-color: #2a3035;
-	/*height: 9em;*/
 	position: absolute;
 	right: 0;
 	bottom: 0;
