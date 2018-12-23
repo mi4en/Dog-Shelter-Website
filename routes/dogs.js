@@ -26,7 +26,7 @@ cloudinary.config({
 
 // INDEX - show all dogs
 router.get('/', function(req, res) {
-	var perPage = 8;
+	var perPage = 32;
 	var pageQuery = parseInt(req.query.page);
 	var pageNumber = pageQuery ? pageQuery : 1;
 	var noMatch = null;
