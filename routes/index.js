@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var User = require('../models/user');
-var Dog = require('../models/dog');
-var async = require('async');
-var nodemailer = require('nodemailer');
-var crypto = require('crypto');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const User = require('../models/user');
+const Dog = require('../models/dog');
+const async = require('async');
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 // ROOT ROUTE
 router.get('/', function(req, res) {

@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Define schema
-var dogSchema = new mongoose.Schema({
+const dogSchema = new mongoose.Schema({
 	name: String,
 	breed: String,
 	image: String,

@@ -1,23 +1,23 @@
-var express = require('express');
-var router = express.Router();
-var middleware = require('../middleware');
-var multer = require('multer');
-var Dog = require('../models/dog');
-var storage = multer.diskStorage({
+const express = require('express');
+const router = express.Router();
+const middleware = require('../middleware');
+const multer = require('multer');
+const Dog = require('../models/dog');
+const storage = multer.diskStorage({
 	filename: function(req, file, callback) {
 		callback(null, Date.now() + file.originalname);
 	}
 });
-var imageFilter = function(req, file, cb) {
+const imageFilter = function(req, file, cb) {
 	// accept image files only
 	if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
 		return cb(new Error('Only image files are allowed!'), false);
 	}
 	cb(null, true);
 };
-var upload = multer({ storage: storage, fileFilter: imageFilter });
+const upload = multer({ storage: storage, fileFilter: imageFilter });
 
-var cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary');
 cloudinary.config({
 	cloud_name: process.env.CLOUDINARY_NAME,
 	api_key: process.env.CLOUDINARY_API_KEY,

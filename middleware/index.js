@@ -1,5 +1,5 @@
-var Dog = require('../models/dog');
-var Comment = require('../models/comment');
+const Dog = require('../models/dog');
+const Comment = require('../models/comment');
 
 // all the middleare goes here
 var middlewareObj = {};

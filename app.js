@@ -1,17 +1,17 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 require('dotenv').config();
-var flash = require('connect-flash');
-var moment = require('moment');
-var passport = require('passport');
-var LocalStrategy = require('passport-local');
-var methodOverride = require('method-override');
-var Dog = require('./models/dog');
-var Comment = require('./models/comment');
-var User = require('./models/user');
-var seedDB = require('./seeds');
+const flash = require('connect-flash');
+const moment = require('moment');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const methodOverride = require('method-override');
+const Dog = require('./models/dog');
+const Comment = require('./models/comment');
+const User = require('./models/user');
+const seedDB = require('./seeds');
 
 // requiring routes
 var commentRoutes = require('./routes/comments');
