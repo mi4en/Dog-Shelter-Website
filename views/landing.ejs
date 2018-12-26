@@ -1,39 +1,85 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Dog Shelter</title>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-			crossorigin="anonymous"
-		/>
-		<link rel="stylesheet" href="/stylesheets/landing.css" />
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
-			type="text/javascript"
-			async
-		></script>
-	</head>
-	<body>
-		<div class="container">
-			<% if(error && error.length > 0){ %>
-			<div class="alert alert-danger" role="alert"><%= error %></div>
-			<% } %> <% if(success && success.length > 0){ %>
-			<div class="alert alert-success" role="alert"><%= success %></div>
-			<% } %>
+<% include ./partials/header %>
+<div class="row">
+	<div class="col-md-1">
+		<div class="row">
+			<em class="landing-text">Like Us On</em>
+			<a id="fb" href="https://www.facebook.com/bulgariatieren/"><i class="fab fa-facebook"></i></a>
 		</div>
-
-		<div id="landing-header">
-			<h1>Adopt a friend!</h1>
-			<a href="/dogs" class="btn btn-lg btn-success">View All Dogos</a>
+	</div>
+	<div class="col-md-11">
+		<div class="row">
+			<div class="col">
+				<img src="assets/01_Boiko s Kuche1.jpg" class="img-thumbnail card-img-top1" alt="01_Boiko s Kuche1" />
+			</div>
+			<div class="col">
+				<img src="assets/02_Boiko S kuche2.jpg" class="img-thumbnail card-img-top1" alt="02_Boiko S kuche2" />
+			</div>
+			<div class="col">
+				<img src="assets/03_TierzentrumLadnscape.jpg" class="img-thumbnail card-img-top1" alt="03_TierzentrumLadnscape" />
+			</div>
+			<div class="col">
+				<img src="assets/04_Viki Titelbild.jpg" class="img-thumbnail card-img-top1" alt="04_Viki Titelbild" />
+			</div>
 		</div>
-		<ul class="slideshow">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-	</body>
-</html>
+		<div class="row">
+			<div class="col-6 landing-text">
+				Das Tierzentrum ''Oscar & Lora Bulgaria'' ist ein noch relativ neues
+				Zentrum in Blagoevgrad (Bulgarien). Boiko Grenke ist der Gründer und
+				Betreiber dieses Zentrums. Er erbaute es aus eigener Hand, dank
+				zahlreicher Spenden und ein paar ganz lieben und fleißigen Helfern. Seit
+				mittlerweile 15 Jahren rettet Boiko Strassenhunde und Katzen. Er nimmt sie
+				bei sich auf, lässt sie tierärztlich Versorgen und sucht im Anschluss
+				tolle Familien für seine Schützlinge. Er steckt all seine Zeit und Liebe
+				in die Tiere. Oscar und Lora waren die beiden ersten Hunde die er gerettet
+				hat und welche er im Zentrum versorgt hatte. Daher stammt auch der Name
+				des Zentrums. Momentan baut er an der Unterkunft für Tiereweiter, die
+				seine Hilfe so dringend benötigen. Tiere die verlassen wurden, die einsam
+				sind und frieren. Arme Seelen, die oft Schmerz und Hunger erleiden. Boiko
+				leistet großartiges für die Fellnasen, denn auch er wurde als Junge
+				verlassen und teilt ihr Schicksal. Sie sind seine Familie geworden. Auch
+				wenn die vielen Schnäuzchen bei ihm gut untergebracht und versorgt sind,
+				wünscht er sich für sie ein gutes und liebevolles Zuhause. Denn
+				mittlerweile sind es etwa 50 Hunde und auch einige Katzen und so bleibt
+				natürlich für das einzelne Tier zu wenig Zeit und außerdem braucht er
+				Platz, die hilfsbedürftigen Notfellchen stehen Schlange... Es sind so
+				viele und es hört einfach nicht auf. Sein größer Wunsch ist, dass es kein
+				Tierleid mehr auf dieser Welt gibt, dass der Mensch das Tier endlich als
+				das ansieht was sie nun mal sind.. Geschöpfe des Himmels, so wie der
+				Mensch auch. Doch Boiko weiß dass es ein Traum bleiben wird, sieht er doch
+				jeden Tag das Leid der Tiere, an welchem der Mensch meist Schuld ist. Das
+				macht ihn sehr traurig, aber es zeigt ihm auch, dass es Menschen wie ihn
+				geben muss, die sich der Tiere annehmen und zwar nicht um aus deren Leid
+				Profit zu schöpfen, NEIN - um dafür zu sorgen das es den Tieren gut geht,
+				dass ein kleines Stückchen dieser Welt an Leid abnimmt. Auch wenn es oft
+				sehr hart ist, körperlich und vor allem emotional und auch wenn es
+				manchmal aussichtslos erscheint, er wird niemals aufhören für das Wohl der
+				Tiere zu kämpfen!! Bitte helfen Sie uns, für die Tiere ein schönes neues
+				Zuhause zu finden.
+			</div>
+			<div class="col-6 landing-text">
+				The animal center ''Oscar & Lora Bulgaria‘’ located in Blagoevgrad
+				(Bulgaria) is being run by Boiko Grenke. He created the small animal
+				shelter and takes care of the animals there. He built the shelter with his own
+				hands, thanks to numerous donations and a few hard-working helpers. For the
+				last 15 years Boiko rescues stray dogs and cats. He saves them from the
+				streets, brings them to his animal center and then tries to find them
+				loving new families. He puts all his time and love into the animals.
+				Oscar and Lora are the first two dogs, which he saved – that’s why the
+				animal center is named after them. In this animal shelter for abandoned,
+				injured and frightened stray dogs and cats he is trying to save the
+				poor souls who are suffering from pain and hunger. For Boiko these
+				feelings are very familiar, as he also has no parents and was
+				abandoned as a baby. Now he saves stray dogs and cats and has turned this into
+				his destiny and they are his family now. Boiko dreams of finding a
+				good and lovely family for each of them. For now there are around 50 dogs and some cats. And
+				the problem with stray dogs in Bulgaria is so huge - there are so many and
+				it just does not stop. Although it is often very hard -
+				physically and emotionally - and even if it sometimes seems hopeless, he
+				will never stop fighting for the welfare of the animals!!! His greatest
+				dream is that there are no animal suffering left in this world. Please
+				help us to find a beautiful new home for the animals.
+			</div>
+		</div>
+	</div>
+</div>
+<% include ./partials/footer %>

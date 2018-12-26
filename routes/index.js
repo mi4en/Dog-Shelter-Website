@@ -47,6 +47,7 @@ router.get('/login', function(req, res) {
 });
 
 // LOGIN LOGIC
+
 // router.post(
 //   "/login",
 //   passport.authenticate("local", {
@@ -282,6 +283,16 @@ router.get('/users/:id', function(req, res) {
 				res.render('users/show', { user: foundUser, dogs: dogs });
 			});
 	});
+});
+
+// DONATE ROUTE
+router.get('/donate', function(req, res) {
+	res.render('donate', { page: 'donate' });
+});
+
+// ADOPTED ROUTE
+router.get('/adopted', function(req, res) {
+	res.render('adopted', { page: 'adopted' });
 });
 
 module.exports = router;
