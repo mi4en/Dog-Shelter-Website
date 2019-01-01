@@ -19,7 +19,7 @@ body {
 	font-size: 80px;
 }
 .bg {
-	background-color: #bbaf95;
+	background-color: #f3ecdc;
 	/* The image used */
 	/*background-image: url("/assets/photoBody.jpg");*/
 	/* Full height */
@@ -91,7 +91,8 @@ body {
 }
 .card-img-top1 {
     width: 100%;
-    height: 20vw;
+    /* height: 20vw; */
+    height: 90%;
     object-fit: cover;
 }
 .landing-text{
