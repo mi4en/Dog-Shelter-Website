@@ -36,7 +36,7 @@
             <%= moment(dog.createdAt).fromNow() %></em>
         </p>
         <hr />
-        <p>Few thing about me:</p>
+        <p>Few things about me:</p>
         <textarea class="card-text ta" readonly cols='70' rows='7'><%= dog.description %></textarea>
         </br>
         <% if(currentUser && dog.author.id.equals(currentUser._id) ||
