@@ -200,6 +200,8 @@ router.put(
 				dog.name = req.body.dog.name;
 				dog.description = req.body.dog.description;
 				dog.age = req.body.dog.age;
+				dog.fbLink = req.body.dog.fbLink;
+				dog.dimensions = req.body.dog.dimensions;
 				dog.save();
 				req.flash('success', 'Successfully Updated!');
 				res.redirect('/dogs/' + dog._id);
