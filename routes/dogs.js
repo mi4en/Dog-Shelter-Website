@@ -199,7 +199,7 @@ router.put(
 				}
 				dog.name = req.body.dog.name;
 				dog.description = req.body.dog.description;
-				dog.breed = req.body.dog.breed;
+				dog.age = req.body.dog.age;
 				dog.save();
 				req.flash('success', 'Successfully Updated!');
 				res.redirect('/dogs/' + dog._id);

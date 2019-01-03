@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 // Define schema
 const dogSchema = new mongoose.Schema({
 	name: String,
-	breed: String,
+	age: String,
 	image: String,
 	imageId: String,
 	description: String,
+	fbLink: String,
+	dimensions: String,
 	createdAt: { type: Date, default: Date.now },
 	author: {
 		id: {

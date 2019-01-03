@@ -15,31 +15,46 @@
 					name="dog[name]"
 					value="<%= dog.name %>"
 				/>
-			</div>			
-			<div class="form-group">
-				<label for="image">Image</label>
-				<input 
-					type="file" 
-					id="image" 
-					name="image" 
-					accept="image/*" />
 			</div>
 			<div class="form-group">
-				<input 
-					class="form-control" 
-					type="text" 
-					name="dog[breed]" 
-					value="<%= dog.breed %>" />
+				<label for="image">Image</label>
+				<input type="file" id="image" name="image" accept="image/*" />
+			</div>
+			<div class="form-group">
+				<input
+					class="form-control"
+					type="url"
+					name="dog[fbLink]"
+					value="<%= dog.fbLink %>"
+				/>
+			</div>
+			<div class="form-group">
+				<input
+					class="form-control"
+					type="text"
+					name="dog[age]"
+					value="<%= dog.age %>"
+				/>
+			</div>
+			<div class="form-group">
+				<input
+					class="form-control"
+					type="text"
+					name="dog[dimensions]"
+					value="<%= dog.dimensions %>"
+				/>
 			</div>
 			<div class="form-group">
 				<textarea
 					name="dog[description]"
-					cols="70"
+					cols="90"
 					rows="7"
 					class="form-control"
 					placeholder="Write your description..."
 					form="edit-dog-form"
-				><%= dog.description %></textarea>
+				>
+<%= dog.description %></textarea
+				>
 			</div>
 			<div class="form-group">
 				<button class="btn btn-lg btn-primary btn-block">Submit</button>
