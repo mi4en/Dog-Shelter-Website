@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 <div class="row justify-content-center">
   <!--  <div class="col-md-3">-->
-  <!--    <p class="lead">The Cook Grimoire</p>-->
+  <!--    <p class="lead">Dog Shelter</p>-->
   <!--    <div class="list-group">-->
   <!--      <li class="list-group-item active">Info 1</li>-->
   <!--      <li class="list-group-item">Info 2</li>-->
@@ -20,9 +20,6 @@
           Hi, my name is
           <%= dog.name %>!
         </h5>
-        <!-- <p class="float-right">Size:
-          <%= dog.dimensions %>
-        </p> -->
         <a href="<%= dog.fbLink %>">
           Click to check my Facebook photo album
         </a>
@@ -39,7 +36,8 @@
             <%= moment(dog.createdAt).fromNow() %></em>
         </p>
         <hr />
-        <textarea class="card-text ta" readonly cols='105' rows='7'><%= dog.description %></textarea>
+        <p>Few thing about me:</p>
+        <textarea class="card-text ta" readonly cols='70' rows='7'><%= dog.description %></textarea>
         </br>
         <% if(currentUser && dog.author.id.equals(currentUser._id) ||
         currentUser && currentUser.isAdmin){ %>
