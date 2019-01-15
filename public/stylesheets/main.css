@@ -14,7 +14,7 @@ body {
 	padding-bottom: 11rem;
 	min-height: 100%;
 }
-#fb{
+#fb {
 	font-size: 80px;
 }
 .bg {
@@ -64,7 +64,7 @@ body {
 	border-color: lightgrey;
 	background-color: #ffffff;
 }
-.footer-custom {	
+.footer-custom {
 	width: 100%;
 	background-color: #2a3035;
 	position: absolute;
@@ -89,21 +89,21 @@ body {
 	color: rgb(12, 11, 11);
 }
 .card-img-top2 {
-    width: 100%;
-    height: 20rem;
-    object-fit: cover;
+	width: 100%;
+	height: 20rem;
+	object-fit: cover;
 }
 .card-img-top1 {
-    width: 100%;
-    height: 90%;
-    object-fit: cover;
+	width: 100%;
+	height: 90%;
+	object-fit: cover;
 }
 .card-img-show {
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
+	width: 100%;
+	height: 70%;
+	object-fit: cover;
 }
-.landing-text{
+.landing-text {
 	font-family: 'Open-Sans', sans-serif;
 	font-size: 20px;
 }
