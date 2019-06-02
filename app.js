@@ -22,10 +22,7 @@ var indexRoutes = require('./routes/index');
 
 // exprot DATABASEURL=mongodb://conn.string...
 var url = process.env.DATABASEURL || 'mongodb://localhost:27017/dog_shelter';
-mongoose.connect(
-	url,
-	{ useNewUrlParser: true }
-);
+mongoose.connect(url, { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -41,7 +38,7 @@ app.use(
 	require('express-session')({
 		secret: 'DemonHunterIsTheBestClass',
 		resave: false,
-		saveUninitialized: false
+		saveUninitialized: false,
 	})
 );
 app.use(passport.initialize());
@@ -59,7 +56,9 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRoutes);
 app.use('/dogs', dogRoutes);
+app.use('/cats', catRoutes);
 app.use('/dogs/:id/comments', commentRoutes);
+app.use('/cats/:id/comments', commentRoutes);
 
 app.use(function(req, res, next) {
 	res.status(404).render('404_error_template', { title: 'NotFound' });
