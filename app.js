@@ -9,15 +9,15 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const methodOverride = require('method-override');
 const Dog = require('./models/dog');
+const Cat = require('./models/cat');
 const Comment = require('./models/comment');
 const User = require('./models/user');
 const seedDB = require('./seeds');
 
 // requiring routes
 var commentRoutes = require('./routes/comments');
-
 var dogRoutes = require('./routes/dogs');
-
+var catRoutes = require('./routes/cats');
 var indexRoutes = require('./routes/index');
 
 // exprot DATABASEURL=mongodb://conn.string...
