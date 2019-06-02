@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user');
 const Dog = require('../models/dog');
+const Cat = require('../models/cat');
 const async = require('async');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
@@ -24,7 +25,7 @@ router.post('/register', function(req, res) {
 	var newUser = new User({
 		username: req.body.username,
 		email: req.body.email,
-		avatar: req.body.avatar
+		avatar: req.body.avatar,
 	});
 	if (req.body.username === process.env.ADMIN_USER) {
 		newUser.isAdmin = true;
@@ -123,8 +124,8 @@ router.post('/forgot', function(req, res, next) {
 					service: 'Gmail',
 					auth: {
 						user: 'noreply.nomnomnom@gmail.com',
-						pass: process.env.GMAILPW
-					}
+						pass: process.env.GMAILPW,
+					},
 				});
 				var mailOptions = {
 					to: user.email,
@@ -140,7 +141,7 @@ router.post('/forgot', function(req, res, next) {
 						'\n\n' +
 						'This link will be valid for 1 hour only' +
 						'\n\n' +
-						'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+						'If you did not request this, please ignore this email and your password will remain unchanged.\n',
 				};
 				smtpTransport.sendMail(mailOptions, function(err) {
 					console.log('mail sent');
@@ -152,7 +153,7 @@ router.post('/forgot', function(req, res, next) {
 					);
 					done(err, 'done');
 				});
-			}
+			},
 		],
 		function(err) {
 			if (err) return next(err);
@@ -165,7 +166,7 @@ router.get('/reset/:token', function(req, res) {
 	User.findOne(
 		{
 			resetPasswordToken: req.params.token,
-			resetPasswordExpires: { $gt: Date.now() }
+			resetPasswordExpires: { $gt: Date.now() },
 		},
 		function(err, user) {
 			if (err) {
@@ -188,7 +189,7 @@ router.post('/reset/:token', function(req, res) {
 				User.findOne(
 					{
 						resetPasswordToken: req.params.token,
-						resetPasswordExpires: { $gt: Date.now() }
+						resetPasswordExpires: { $gt: Date.now() },
 					},
 					function(err, user) {
 						if (err) {
@@ -236,8 +237,8 @@ router.post('/reset/:token', function(req, res) {
 					service: 'Gmail',
 					auth: {
 						user: 'noreply.nomnomnom@gmail.com',
-						pass: process.env.GMAILPW
-					}
+						pass: process.env.GMAILPW,
+					},
 				});
 				var mailOptions = {
 					to: user.email,
@@ -247,13 +248,13 @@ router.post('/reset/:token', function(req, res) {
 						'Hello,\n\n' +
 						'This is a confirmation that the password for your account ' +
 						user.email +
-						' has just been changed.\n'
+						' has just been changed.\n',
 				};
 				smtpTransport.sendMail(mailOptions, function(err) {
 					req.flash('success', 'Success! Your password has been changed.');
 					done(err);
 				});
-			}
+			},
 		],
 		function(err) {
 			if (err) {

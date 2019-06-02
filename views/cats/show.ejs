@@ -1,0 +1,159 @@
+<% include ../partials/header %>
+<div class="row justify-content-center">
+  <!--  <div class="col-md-3">-->
+  <!--    <p class="lead">Cat Shelter</p>-->
+  <!--    <div class="list-group">-->
+  <!--      <li class="list-group-item active">Info 1</li>-->
+  <!--      <li class="list-group-item">Info 2</li>-->
+  <!--      <li class="list-group-item">Info 3</li>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <div class="col-md-9">
+    <div class="card mb-3">
+      <img class="card-img-show img-fluid" src="<%= cat.image %>" alt="<%= cat.image %>" />
+      <div class="card-body bg-card-show">
+        <p class="float-right">I am
+          <%= cat.age %> old,
+          <%= cat.dimensions %>.
+        </p>
+        <h5 class="card-title">
+          Hi, my name is
+          <%= cat.name %>!
+        </h5>
+        <a href="<%= cat.fbLink %>">
+          Click to check my Facebook photo album
+        </a>
+        <hr />
+        <!-- <p>
+          <em>Submitted By
+            <a href="/users/<%= cat.author.id %>">
+              <%= cat.author.username %></a>
+            <%= moment(cat.createdAt).fromNow() %></em>
+        </p> -->
+        <p>
+          <em>Submitted by
+            <%= cat.author.username %>
+            <%= moment(cat.createdAt).fromNow() %></em>
+        </p>
+        <hr />
+        <p>Few things about me:</p>
+        <textarea class="card-text ta" readonly cols='70' rows='7'><%= cat.description %></textarea>
+        </br>
+        <% if(currentUser && cat.author.id.equals(currentUser._id) ||
+        currentUser && currentUser.isAdmin){ %>
+        <a class="btn btn-outline-warning" href="/cats/<%= cat._id %>/edit">Edit</a>
+        <form action="/cats/<%= cat._id %>?_method=DELETE" method="POST" class="delete-form">
+          <button class="btn btn-outline-danger">Delete</button>
+        </form>
+        <% } %>
+      </div>
+    </div>
+    <!--COMMENT SECTION START-->
+    <div class="card">
+      <div class="card-body bg-card-show">
+        <div class="text-right">
+          <a class="btn btn-success" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment"><span
+              aria-hidden="true"><i class="fas fa-plus"></i></span> Add new comment</a>
+        </div>
+        <!--Comment section title-->
+        <h6>Comments <span aria-hidden="true"><i class="far fa-comment"></i></span></h6>
+
+        <!--Collapse Add a comment form START-->
+        <div class="collapse" id="collapseComment">
+          <div class="card-text">
+            <% if(!currentUser) { %>
+            <!--If the user is not logged in, direct him to the login page-->
+            <h6>You need to login before you can comment. <a href="/login">Click here</a> to go to the login page.</h6>
+            <% } %>
+            <% if(currentUser) { %>
+            <!--If the user is logged in, show the new comment form-->
+            <h6>Write your comment <span aria-hidden="true"><i class="fas fa-pencil-alt"></i></span></h6>
+            <form id="add-comment-form" action="/cats/<%= cat._id %>/comments" method="POST">
+              <div class="form-group">
+                <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="comment[text]" placeholder="Write your comment..." form="add-comment-form"
+                  rows="5" cols="70"></textarea>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-outline-success btn-sm">Comment <span aria-hidden="true"><i class="fas fa-comment"></i></span></button>
+              </div>
+            </form>
+            <% } %>
+          </div>
+        </div>
+        <!--Collapse Add a comment form END-->
+
+        <hr>
+
+        <!--Check if there are comments, if there are none say no comments.-->
+        <% if (cat.comments.length === 0) { %>
+        <em class='no-comments'>There are no comments for this cat yet.</em>
+        <% } %>
+
+        <!--Display comments by looping through them-->
+        <% cat.comments.forEach(function(comment) { %>
+        <div class="row">
+          <div class="col-md-12">
+
+            <% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
+            <!--If the current user owns the comment, change the color of the user icon-->
+            <span class='own-comment' aria-hidden="true"><i class="far fa-user"></i></span>
+            <% } else { %>
+            <!--Else just display it black-->
+            <span aria-hidden="true"><i class="far fa-user"></i></span>
+            <% } %>
+            <!--Print out the author username-->
+            <a href="/users/<%= comment.author.id %>">
+              <%= comment.author.username %></a>
+
+            <!--Show when the comment was made-->
+            <span>commented
+              <%= moment(comment.createdAt).fromNow() %></span>
+            <!--Printing the comment-->
+            <p>
+              <%= comment.text %>
+            </p>
+            <!--If the visitor is logged in and the owner of the comment, show the edit and delete buttons-->
+            <% if (currentUser && currentUser._id.equals(comment.author.id) || currentUser && currentUser.isAdmin) { %>
+            <!--Edit button used for collapsing the edit comment form-->
+            <a class="btn btn-sm btn-outline-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>"
+              aria-expanded="false" aria-controls="collapse<%= comment._id %>">
+              Edit</a>
+            <!--Delete comment button-->
+            <form id="delete-form" action="/cats/<%= cat._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"
+              class="delete-form">
+              <button class="btn btn-sm btn-outline-danger">Delete</button>
+            </form>
+            <!--Edit comment form-->
+            <div class="collapse" id="collapseEdit<%= comment._id %>">
+              <div class="card-text">
+                <h6>Edit your comment <span aria-hidden="true"><i class="fas fa-edit"></i></span></h6>
+                <form id="edit-comment-form" action="/cats/<%= cat._id %>/comments/<%= comment._id %>?_method=PUT"
+                  method="POST">
+                  <div class="form-group">
+                    <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form"
+                      rows="5" cols="70"><%= comment.text %></textarea>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-outline-warning btn-sm">Edit comment <span aria-hidden="true"><i class="fas fa-comment"></i></span></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <% } %>
+            <hr>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+      <!--COMMENT SECTION END-->
+    </div>
+  </div>
+</div>
+</div>
+<% include ../partials/footer %>
