@@ -28,8 +28,8 @@ middlewareObj.checkDogOwnership = function(req, res, next) {
 				res.redirect('back');
 			} else {
 				// does user own the dog?
-				//if (foundDog.author.id.equals(req.user._id) || req.user.isAdmin) {
-				if (req.user.isAdmin) {
+				if (foundDog.author.id.equals(req.user._id) || req.user.isAdmin) {
+					//if (req.user.isAdmin) {
 					next();
 				} else {
 					req.flash('error', 'Access denied!');
@@ -51,8 +51,8 @@ middlewareObj.checkCatOwnership = function(req, res, next) {
 				res.redirect('back');
 			} else {
 				// does user own the cat?
-				//if (foundDog.author.id.equals(req.user._id) || req.user.isAdmin) {
-				if (req.user.isAdmin) {
+				if (foundDog.author.id.equals(req.user._id) || req.user.isAdmin) {
+					//if (req.user.isAdmin) {
 					next();
 				} else {
 					req.flash('error', 'Access denied!');

@@ -292,8 +292,13 @@ router.get('/donate', function(req, res) {
 });
 
 // ADOPTED ROUTE
-router.get('/adopted', function(req, res) {
-	res.render('adopted', { page: 'adopted' });
+// router.get('/adopted', function(req, res) {
+// 	res.render('adopted', { page: 'adopted' });
+// });
+
+// ABOUT ROUTE
+router.get('/about', function(req, res) {
+	res.render('about', { page: 'about' });
 });
 
 module.exports = router;
