@@ -6,7 +6,7 @@ const Dog = require('../models/dog');
 const storage = multer.diskStorage({
 	filename: function(req, file, callback) {
 		callback(null, Date.now() + file.originalname);
-	}
+	},
 });
 const imageFilter = function(req, file, cb) {
 	// accept image files only
@@ -21,7 +21,7 @@ const cloudinary = require('cloudinary');
 cloudinary.config({
 	cloud_name: process.env.CLOUDINARY_NAME,
 	api_key: process.env.CLOUDINARY_API_KEY,
-	api_secret: process.env.CLOUDINARY_API_SECRET
+	api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 // INDEX - show all dogs
@@ -52,7 +52,7 @@ router.get('/', function(req, res) {
 							current: pageNumber,
 							pages: Math.ceil(count / perPage),
 							noMatch: noMatch,
-							search: req.query.search
+							search: req.query.search,
 						});
 					}
 				});
@@ -75,7 +75,7 @@ router.get('/', function(req, res) {
 							current: pageNumber,
 							pages: Math.ceil(count / perPage),
 							noMatch: noMatch,
-							search: false
+							search: false,
 						});
 					}
 				});
@@ -100,7 +100,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(
 		// add author to dog
 		req.body.dog.author = {
 			id: req.user._id,
-			username: req.user.username
+			username: req.user.username,
 		};
 		Dog.create(req.body.dog, function(err, dog) {
 			if (err) {
@@ -142,7 +142,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(
 
 // NEW - show form to create new dog
 //router.get('/new', middleware.isLoggedIn, function (req, res) {
-router.get('/new', middleware.checkUserIsAdmin, function(req, res) {
+router.get('/new', middleware.isLoggedIn, function(req, res) {
 	res.render('dogs/new');
 });
 

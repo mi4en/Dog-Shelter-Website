@@ -142,7 +142,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(
 
 // NEW - show form to create new cat
 //router.get('/new', middleware.isLoggedIn, function (req, res) {
-router.get('/new', middleware.checkUserIsAdmin, function(req, res) {
+router.get('/new', middleware.isLoggedIn, function(req, res) {
 	res.render('cats/new');
 });
 
