@@ -39,7 +39,7 @@ app.use(
 		secret: 'DemonHunterIsTheBestClass',
 		resave: false,
 		saveUninitialized: false,
-	})
+	}),
 );
 app.use(passport.initialize());
 app.use(passport.session());

@@ -13,16 +13,16 @@ const dogSchema = new mongoose.Schema({
 	author: {
 		id: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: 'User'
+			ref: 'User',
 		},
-		username: String
+		username: String,
 	},
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
-			ref: 'Comment'
-		}
-	]
+			ref: 'Comment',
+		},
+	],
 });
 
 // Define and export model to be used from app.js

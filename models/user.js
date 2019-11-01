@@ -8,7 +8,7 @@ var UserSchema = new mongoose.Schema({
 	avatar: String,
 	isAdmin: { type: Boolean, default: false },
 	resetPasswordToken: String,
-	resetPasswordExpires: Date
+	resetPasswordExpires: Date,
 });
 
 UserSchema.plugin(passportLocalMongoose);

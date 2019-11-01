@@ -149,7 +149,7 @@ router.post('/forgot', function(req, res, next) {
 						'success',
 						'An e-mail has been sent to ' +
 							user.email +
-							' with further instructions.'
+							' with further instructions.',
 					);
 					done(err, 'done');
 				});
@@ -158,7 +158,7 @@ router.post('/forgot', function(req, res, next) {
 		function(err) {
 			if (err) return next(err);
 			res.redirect('/forgot');
-		}
+		},
 	);
 });
 
@@ -178,7 +178,7 @@ router.get('/reset/:token', function(req, res) {
 				return res.redirect('/forgot');
 			}
 			res.render('reset', { token: req.params.token });
-		}
+		},
 	);
 });
 
@@ -199,7 +199,7 @@ router.post('/reset/:token', function(req, res) {
 						if (!user) {
 							req.flash(
 								'error',
-								'Password reset token is invalid or has expired.'
+								'Password reset token is invalid or has expired.',
 							);
 							return res.redirect('back');
 						}
@@ -216,7 +216,7 @@ router.post('/reset/:token', function(req, res) {
 									if (err) {
 										req.flash(
 											'error',
-											'Something went wrong please try again.'
+											'Something went wrong please try again.',
 										);
 										return res.redirect('/reset');
 									}
@@ -229,7 +229,7 @@ router.post('/reset/:token', function(req, res) {
 							req.flash('error', 'Passwords do not match.');
 							return res.redirect('back');
 						}
-					}
+					},
 				);
 			},
 			function(user, done) {
@@ -262,7 +262,7 @@ router.post('/reset/:token', function(req, res) {
 				return res.redirect('/reset');
 			}
 			res.redirect('/dogs');
-		}
+		},
 	);
 });
 

@@ -1,23 +1,27 @@
 <% include ./partials/header %>
-<div class="container">	
+<div class="container">
 	<div class="row">
 		<div class="col col-md-10">
 			<h3>Welcome to adoptiere-bg.eu</h3>
-			<br>
+			<br />
 			<div class="jumbotron jumbotron-style">
 				<div class="container">
 					<% if (currentUser && currentUser.isAdmin) { %>
 					<p>
-						<a class="btn btn-success btn-large" href="/dogs/new">Add New Dog</a>
+						<a class="btn btn-success btn-large" href="/dogs/new"
+							>Add New Dog</a
+						>
 					</p>
 					<% } %>
 				</div>
 			</div>
 			<p>
-				This website is free to be used by anyone who is trying to help.
-				Please try to provide a nice picture and good description. Facebook <i class="fab fa-facebook"></i>
-				links with more pictures are most welcome in the desciption. 
-				Please feel free to contact me with any issues, suggestions or whatever regarding the website at <a href="">nikolov.msn@gmail.com</a>
+				This website is free to be used by anyone who is trying to help. Please
+				try to provide a nice picture and good description. Facebook
+				<i class="fab fa-facebook"></i> links with more pictures are most
+				welcome in the desciption. Please feel free to contact me with any
+				issues, suggestions or whatever regarding the website at
+				<a href="">nikolov.msn@gmail.com</a>
 			</p>
 		</div>
 	</div>

@@ -56,7 +56,7 @@ function seedDb() {
 									dog.save();
 									console.log('Created new comment');
 								}
-							}
+							},
 						);
 					}
 				});

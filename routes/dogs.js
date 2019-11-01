@@ -86,7 +86,7 @@ router.get('/', function(req, res) {
 // CREATE - add new dog to DB
 router.post('/', middleware.isLoggedIn, upload.single('image'), function(
 	req,
-	res
+	res,
 ) {
 	cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
 		if (err) {
@@ -207,7 +207,7 @@ router.put(
 				res.redirect('/dogs/' + dog._id);
 			}
 		});
-	}
+	},
 );
 
 // DESTROY DOG ROUTE

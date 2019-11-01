@@ -50,7 +50,7 @@ router.post('/', middleware.isLoggedIn, function(req, res) {
 // COMMENT EDIT ROUTE
 router.get('/:comment_id/edit', middleware.checkCommentOwnership, function(
 	req,
-	res
+	res,
 ) {
 	Dog.findById(req.params.id, function(err, foundDog) {
 		if (err || !foundDog) {
@@ -63,7 +63,7 @@ router.get('/:comment_id/edit', middleware.checkCommentOwnership, function(
 			} else {
 				res.render('comments/edit', {
 					dog_id: req.params.id,
-					comment: foundComment
+					comment: foundComment,
 				});
 			}
 		});
@@ -73,11 +73,11 @@ router.get('/:comment_id/edit', middleware.checkCommentOwnership, function(
 // COMMENT UPDATE
 router.put('/:comment_id', middleware.checkCommentOwnership, function(
 	req,
-	res
+	res,
 ) {
 	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(
 		err,
-		updatedComment
+		updatedComment,
 	) {
 		if (err) {
 			req.flash('error', 'Someting went wrong');
@@ -92,7 +92,7 @@ router.put('/:comment_id', middleware.checkCommentOwnership, function(
 // COMMENT DESTROY ROUTE
 router.delete('/:comment_id', middleware.checkCommentOwnership, function(
 	req,
-	res
+	res,
 ) {
 	// findByIdAndRemove
 	Comment.findByIdAndRemove(req.params.comment_id, function(err) {
